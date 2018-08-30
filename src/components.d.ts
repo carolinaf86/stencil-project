@@ -30,7 +30,41 @@ import '@stencil/state-tunnel';
 
 import {
   MatchResults,
+  RouterHistory,
 } from '@stencil/router';
+
+declare global {
+
+  namespace StencilComponents {
+    interface AnotherPage {
+
+    }
+  }
+
+  interface HTMLAnotherPageElement extends StencilComponents.AnotherPage, HTMLStencilElement {}
+
+  var HTMLAnotherPageElement: {
+    prototype: HTMLAnotherPageElement;
+    new (): HTMLAnotherPageElement;
+  };
+  interface HTMLElementTagNameMap {
+    'another-page': HTMLAnotherPageElement;
+  }
+  interface ElementTagNameMap {
+    'another-page': HTMLAnotherPageElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'another-page': JSXElements.AnotherPageAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface AnotherPageAttributes extends HTMLAttributes {
+
+    }
+  }
+}
+
 
 declare global {
 
@@ -126,6 +160,39 @@ declare global {
   namespace JSXElements {
     export interface AppRootAttributes extends HTMLAttributes {
 
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
+    interface OneMorePage {
+      'history': RouterHistory;
+    }
+  }
+
+  interface HTMLOneMorePageElement extends StencilComponents.OneMorePage, HTMLStencilElement {}
+
+  var HTMLOneMorePageElement: {
+    prototype: HTMLOneMorePageElement;
+    new (): HTMLOneMorePageElement;
+  };
+  interface HTMLElementTagNameMap {
+    'one-more-page': HTMLOneMorePageElement;
+  }
+  interface ElementTagNameMap {
+    'one-more-page': HTMLOneMorePageElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'one-more-page': JSXElements.OneMorePageAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface OneMorePageAttributes extends HTMLAttributes {
+      'history'?: RouterHistory;
     }
   }
 }
